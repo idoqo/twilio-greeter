@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
-    function showGreetings(Request $request){
+    function index(Request $request){
         // retrieve the language from the GET parameter or default to English
         $language = $request->get('language', 'english');
 
