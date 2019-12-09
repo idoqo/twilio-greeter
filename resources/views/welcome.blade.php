@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Twilio Greeter!</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -39,6 +39,15 @@
                 right: 10px;
                 top: 18px;
             }
+            .top-right > a {
+                color: #636b6f;
+                padding: 0 24px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .05rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
 
             .content {
                 text-align: center;
@@ -48,14 +57,13 @@
                 font-size: 84px;
             }
 
-            .links > a {
+            .links > p {
                 color: #636b6f;
                 padding: 12px 24px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
-                text-transform: uppercase;
                 display: block;
             }
 
@@ -66,20 +74,26 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+            <div class="top-right links">
+                <a href="{{ url('/?language=english') }}">English</a>
+                <a href="{{ url('/?language=german') }}">German</a>
+                <a href="{{ url('/?language=idoma') }}">Idoma</a>
+                <a href="{{ url('/?language=yoruba') }}">Yoruba</a>
+                <a href="{{ url('/?language=french') }}">French</a>
+            </div>
+
             <div class="content">
                 <div class="title m-b-md">
                     Twilio Greeter
                 </div>
 
                 <div class="links">
-                    <a href="#">Docs</a>
-                    <a href="#">Laracasts</a>
-                    <a href="#">News</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Nova</a>
-                    <a href="#">Forge</a>
+                    @foreach ($greetings as $greeting)
+                    <p>{{$greeting}}</p>
+                    @endforeach
                 </div>
             </div>
         </div>
+
     </body>
 </html>
