@@ -1,11 +1,13 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
-    function showGreetings(Request $request){
+    public function showGreetings(Request $request)
+    {
         // retrieve the language from the GET parameter or default to English
         $language = $request->get('language', 'english');
 
@@ -15,7 +17,8 @@ class WelcomeController extends Controller
         // return the view template at `resources/views/welcome.blade.php` with the $greetings array.
         return view('welcome', $data);
     }
-    function greetings($language) {
+    private function greetings($language)
+    {
         switch ($language) {
             case "english":
             default:
