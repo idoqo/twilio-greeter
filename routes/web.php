@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'WelcomeController@showGreetings');
+Route::get('/', 'WelcomeController@index');
